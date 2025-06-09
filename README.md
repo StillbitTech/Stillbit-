@@ -1,178 +1,150 @@
-# 🪨 Stillbit: AI-Powered Token Stability Tracker
+# 🌌 AuroraTrace: Illuminate Blockchain Risks with AI
 
-## 🌐 Overview
+## 🔍 Introduction
 
-**Stillbit** is a precision-built AI tool that monitors token stability and long-term viability.  
-It helps you navigate market shifts with confidence — through clean analytics, risk forecasting, and deep behavioral scanning.
+**AuroraTrace** is an AI-powered blockchain analyzer designed to detect scams, contract vulnerabilities, and market risks in real time.  
+Built for traders, analysts, and security explorers — it brings precision scanning, intelligent alerts, and data-driven protection to your crypto journey.
 
-## 🔑 Key Features
+Navigate safely. Illuminate the unknown.
 
-⚙️ **StabilityCore**  
-Tracks real-time price and liquidity dynamics to flag early signs of instability before they escalate.
+## 🌠 Key Features
 
-🧠 **RiskMinder**  
-Predicts near-future token risk by analyzing volatility sensitivity, micro-trends, and market stress factors.
+🕳️ **DarkTrack**  
+Scans for fragmented or obfuscated transactions that may signal laundering, proxy routing, or hidden flows across wallets.
 
-🧩 **SecureFlow**  
-Evaluates token health through a composite view of price strength, buyer interest, and historical movement.
+📡 **SignalLight**  
+Monitors token activity to detect:
+- Sudden volume bursts  
+- Liquidity reallocation  
+- Coordinated manipulation patterns
 
-🪨 **EndureScan**  
-Assesses long-term asset resilience by reading price history, behavioral patterns, and asset maturity.
+⚠️ **RiskAlert**  
+Delivers real-time warnings when smart contracts exhibit suspicious behaviors — from stealth mints to LP unlocks and dev withdrawals.
 
-🔮 **LongTermGuard**  
-Simulates macro pressure on tokens to forecast future viability or reveal hidden structural weaknesses.
-
----
-
-## 💡 Why Stillbit?
-
-- **Advanced Predictive Analysis**  
-  Stillbit’s AI engine anticipates disruption — giving you time to act before it arrives.
-
-- **Accurate Market Data**  
-  Always fresh. Always focused. No noise — just clean, actionable insights.
-
-- **Minimalist by Design**  
-  A calm interface for calm decisions. Everything you need, nothing you don’t.
+📊 **DataPulse**  
+Analyzes live market flow and sentiment overlays to highlight:
+- Trend spikes  
+- Coordinated sell-offs  
+- High-risk formation zones
 
 ---
-## 🗺️ Stillbit Roadmap
+## 🗺️ AuroraTrace — Signal Roadmap
 
-Stillbit grows through layered expansion — from foundational scans to predictive foresight.  
-Each phase refines how we detect, forecast, and understand token resilience.
+AuroraTrace evolves across phases — from detection to foresight.  
+Each stage expands the system’s reach, clarity, and intelligence.
 
-### 🧊 Phase 1: Core Launch *(Complete)*
+### ✅ Phase 1: MVP (Live)
 
-The foundation of long-term asset stability is now live.
+The core tracing engine has been activated — **Aurora’s light pierces the veil**.
 
-- 🪙 **StabilityCore** — Real-time monitoring of token structure and integrity  
-- 📡 **RiskMinder** — Predictive alerts using volatility history and pattern recognition  
-- 🔧 **SecureFlow** — Ongoing health diagnostics based on live metrics  
-- 🧱 **EndureScan** — Detects vulnerabilities in real time based on liquidity and behavior  
-- 🔗 **Discord-Based Access Key** — Role sync via verified wallet connection  
-- 💠 **$STILL Token Integration** — Unlocks feature tiers and advanced modules  
+- 🌌 **DarkTrack** — Covert transaction surveillance
+- 📡 **SignalLight** — Real-time anomaly detection
+- 🛡 **RiskAlert** — Instant flags for suspicious behavior
+- 🔦 **DataPulse** — Continuous monitoring of market flow
+- 🔗 **Discord-Synced Access Key** — Role-based feature unlocks via $AURA holdings
+- 💠 **$AURA Token Integration** — Powering layered access and advanced tools  
 📅 *Deployed: Q3 2025*
 
-### 🟦 Phase 2: Signal Expansion *(In Progress)*
+### 🟣 Phase 2: Pulse Expansion (Active)
 
-From passive monitoring to active, adaptive intelligence.
+The system evolves — deeper insights, broader tracking, and more intuitive signals.
 
-- 🔬 **LongTermGuard** — AI-driven token lifecycle evaluation  
-- 📈 **SecurePredict** — Forecasts long-term risk under market pressure  
-- ⚙️ **AdaptiveRisk** — AI adjusts risk scoring based on behavioral shifts  
-- 🧩 **MarketSync** — Scans multiple tokens and synchronizes insight layers  
-- 🧷 **Role-Based UI Expansion** — Feature sets tied to token tier access  
-📅 *Expected: Q3–Q4 2025*
+- 🌐 **GuardLayer** — Multi-chain expansion across Solana, Base, Arbitrum
+- 🔍 **PatternTrace** — Advanced detection of recurring anomaly patterns
+- 🧭 **AlertFlow** — Cross-token syncing for smarter alert correlation
+- 🧬 **Behavior Matrix** — Identification of subtle transaction intent signals
+- 📊 **Role-Synced Dashboards** — UI elements adapt based on your access level  
+📅 *In Progress: Q4 2025*
 
-### 🟪 Phase 3: Predictive Layer *(Planned)*
+### 🔴 Phase 3: Cognitive Forecasting (Planned)
 
-Stillbit begins to look ahead — not just reacting, but anticipating.
+Aurora becomes predictive — no longer just detecting, but *foretelling*.
 
-- 📡 **Flashloan Interference Map** — Live detection of flashloan exploitation attempts  
-- 🧠 **AI Forecast Engine** — Predictive scoring trained on evolving token patterns  
-- 🌐 **Anomaly Pulse Layer** — Identifies instability before volatility surfaces  
-- 🔭 **Cross-Chain Stability Mapping** — Expands tracking beyond Solana  
-📅 *Planned: Q1 2026*
+- 🛰️ **EchoMap** — Visual mapping of wallet migrations and shadow flows
+- ⚠️ **Disruption Predictor** — Predictive risk scoring before anomalies emerge
+- 🧠 **Neural Trace Engine** — Foresight powered by deep learning and memory layers
+- 💬 **Signal Sentiment Feed** — Fusion of on-chain behavior and social sentiment
+- 🌉 **ChainBridge Scanner** — Cross-chain syncing of risk patterns  
+📅 *Scheduled: Q1 2026*
 
----
-## 🧠 Stillbit AI Modules — Open Source Layer
-
-Stillbit's intelligence is composed of predictive and structural scanning functions — each one quietly monitoring the chain for signs of weakness, deviation, or collapse.  
-Below are the core logic modules driving the system.
-
-### ⚙️ StabilityCore — Real-Time Structural Monitoring
-
-```javascript
-function stabilityCore(assetData) {
-  const stabilityIndex = assetData.priceFluctuation * Math.pow(assetData.marketDepth, 0.5);
-  const stabilityThreshold = 3000;
-
-  return stabilityIndex > stabilityThreshold
-    ? 'Alert: Asset Instability Detected'
-    : 'Asset Stable';
-}
-```
-#### 🧠 Purpose: Measures short-term instability potential by combining live price fluctuations with market depth.
-#### Why it matters: Shallow liquidity paired with strong volatility creates cracks in structure — this module flags them before they widen.
-
-### 🧠 RiskMinder — Predictive Stability Forecasting
-
-```javascript
-function riskMinder(assetData) {
-  const volatilityImpact = Math.log(assetData.priceVolatility + 1) * assetData.marketMomentum;
-  const stabilityFactor = assetData.stabilityScore / assetData.marketRisk;
-  const forecastRisk = volatilityImpact * stabilityFactor;
-
-  return forecastRisk > 0.8
-    ? 'Alert: Risk of Instability Forecasted'
-    : 'Asset Stability Likely';
-}
-```
-#### 🔮 Purpose: Forecasts near-future risk based on how reactive the asset is to volatility and overall market momentum.
-#### Why it matters: This is forward-looking — detecting when the future starts to lean toward structural breakdown.
-
-### 🧩 SecureFlow — Live Health Indexing
-
-```javascript
-function secureFlow(assetData) {
-  const assetHealthIndex = (assetData.price * assetData.demandFactor) / assetData.priceVolatility;
-  const healthThreshold = 0.5;
-
-  return assetHealthIndex < healthThreshold
-    ? 'Alert: Asset Health Below Acceptable Level'
-    : 'Asset Health Stable';
-}
-```
-#### 🩺 Purpose: Assesses token vitality by balancing demand, price strength, and volatility levels.
-#### Why it matters: This function highlights when a token’s internal flow weakens — even if the surface still looks strong.
-
-### 🪨 EndureScan — Historical Strength Analysis
-
-```javascript
-function endureScan(assetData) {
-  const enduranceFactor = Math.pow(assetData.priceChange, 2) * assetData.assetAge;
-  const riskThreshold = 100;
-
-  return enduranceFactor < riskThreshold
-    ? 'Alert: Asset Endurance Low'
-    : 'Asset Endurance Sufficient';
-}
-```
-#### 📉 Purpose: Evaluates if an asset has the historical strength to endure future stress or downcycles.
-#### Why it matters: Not every spike is built to last. This tool distinguishes temporary hype from real staying power.
-
-### 🔮 LongTermGuard — Extended Forecast Layer
-
-```javascript
-function longTermGuard(assetData) {
-  const longTermRisk = (assetData.price * assetData.marketMomentum) / Math.sqrt(assetData.volatility);
-
-  return longTermRisk > 2
-    ? 'Alert: Long-Term Instability Predicted'
-    : 'Long-Term Stability Assured';
-}
-```
-#### 📊 Purpose: Predicts how a token may behave under macro pressure over time.
-#### Why it matters: This isn’t noise. It’s a long-wave signal that lets you act before the storm builds.
+**AuroraTrace** is not static — it's a growing, learning sentinel.  
+As threats evolve, so does the signal.
 
 ---
+## 📂GitHub Access
 
-## 🧩 Final Signal
+Each AuroraTrace module is engineered to scan blockchain behavior in real time — identifying risks, tracing hidden flows, and decoding market patterns before they become threats.
 
-Stillbit doesn’t chase noise — it waits for alignment.  
-In the quiet between spikes, it listens. In the cracks, it calculates.
+### 🕳️ DarkTrack — Hidden Transaction Tracer
 
-When the chain shifts, Stillbit already knows.
+**Goal:**  
+Identify transaction paths that are fragmented, obfuscated, or routed through proxy wallets to mask intent.
 
-Move with structure. Think with clarity.  
-Let the signal be still.
+```python
+def dark_track(tx_path):
+    if len(tx_path) > 5 and tx_path.count('unknown_wallet') >= 2:
+        return "Suspicious Movement Detected"
+    elif len(tx_path) > 3:
+        return "Obscured Transaction Trail"
+    else:
+        return "Normal Flow"
+```
+#### Interpretation:
+Long and complex chains with unknown wallets may indicate laundering, relays, or stealth routing attempts.
+
+### 📡 SignalLight — Anomaly Signal Detector
+#### Goal: Detect short-term anomalies such as micro pumps, liquidity distortions, and artificial transaction surges.
+
+```javascript
+function signalLight(volumeChange, liquidityShift, txSpike) {
+  if (volumeChange > 150 && liquidityShift < 10 && txSpike > 60) {
+    return "High Anomaly Risk";
+  } else if (volumeChange > 80) {
+    return "Moderate Signal Detected";
+  } else {
+    return "Normal Activity";
+  }
+}
+```
+####  Interpretation: Sharp volume spikes with low liquidity and high transaction count often suggest botnet activity or pump attempts.
+
+### ⚠️ RiskAlert — Irregularity Notifier
+#### Goal: Trigger real-time alerts when a token exhibits behavior consistent with high-risk patterns.
+
+```python
+def risk_alert(tx_density, token_age_days, recent_alerts):
+    if tx_density > 300 and token_age_days < 5 and recent_alerts >= 2:
+        return "Immediate Risk Alert"
+    elif tx_density > 150:
+        return "Watchlist"
+    else:
+        return "Stable"
+```
+#### Interpretation: Young tokens with intense transaction volume and previous alert history are strong scam/rugpull candidates.
+
+### 📊 DataPulse — Market Flow Tracker
+#### Goal: Analyze evolving price and wallet inflow data to highlight sudden shifts in market behavior.
+
+```javascript
+function dataPulse(priceDelta, walletInflow, timeframeMinutes) {
+  const speed = walletInflow / timeframeMinutes;
+  if (priceDelta > 20 && speed > 5) {
+    return "Trend Spike Detected";
+  } else if (priceDelta < -15) {
+    return "Negative Trend Shift";
+  } else {
+    return "Steady Market Pulse";
+  }
+}
+```
+#### Interpretation: Price increases with rapid inflows can mark bullish spikes, while sharp drops despite inflows may signal coordinated exits or traps.
 ---
 
+## 🌠 Final Signal
 
+AuroraTrace isn’t just a scanner — it’s a lens into the unseen.  
+In the noise of Web3, it listens. In the dark, it draws constellations of insight.
 
-
-
-
-
-
-
+Stay sharp. Stay ahead.  
+Let the signal guide you.
+---
