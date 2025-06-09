@@ -1,6 +1,6 @@
 version: '3'
 services:
-  alyssium:
+  Stillbit:
     build: .
     ports:
       - "8000:8000"
