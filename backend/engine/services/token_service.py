@@ -1,21 +1,45 @@
+
+from __future__ import annotations
+
+import base64
+import hmac
+import json
+import secrets
 import time
-import random
+from dataclasses import dataclass, field
+from hashlib import sha256
+from typing import Dict, Optional
 
-def dark_track(tx_path):
-    if len(tx_path) > 5 and tx_path.count('unknown_wallet') >= 2:
-        return "Suspicious Movement Detected"
-    elif len(tx_path) > 3:
-        return "Obscured Transaction Trail"
-    else:
-        return "Normal Flow"
+ALG = "HS256"                    # only HMAC-SHA256 for simplicity
+_B64 = lambda b: base64.urlsafe_b64encode(b).rstrip(b"=").decode("ascii")
 
-def risk_alert(tx_density, token_age_days, recent_alerts):
-    if tx_density > 300 and token_age_days < 5 and recent_alerts >= 2:
-        return "Immediate Risk Alert"
-    elif tx_density > 150:
-        return "Watchlist"
-    else:
-        return "Stable"
 
-def log_trace(event, metadata):
-    print(f"[TRACE] {event} — {metadata} at {time.time()}")
+@dataclass(slots=True)
+class TokenService:
+    secret: str = field(repr=False)                   # signing key
+    default_ttl: int = 900                            # 15 min
+    blacklist: set[str] = field(default_factory=set)  # revoked jti values
+
+    # ------------------------------------------------------------------ #
+    #  Public API                                                        #
+    # ------------------------------------------------------------------ #
+
+    def issue(
+        self,
+        payload: Dict[str, str | int],
+        ttl: Optional[int] = None,
+    ) -> str:
+        """
+        Create a signed token. Adds `iat`, `exp`, and unique `jti`.
+        """
+        now = int(time.time())
+        ttl = ttl if ttl is not None else self.default_ttl
+        claims = {
+            **payload,
+            "iat": now,
+            "exp": now + ttl,
+            "jti": secrets.token_hex(8),
+        }
+        header = {"alg": ALG, "typ": "JWT"}
+
+        segments = [
