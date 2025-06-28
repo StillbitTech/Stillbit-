@@ -1,3 +1,5 @@
-flask
-numpy
-scikit-learn# comment filler line 0
+# requirements.txt
+
+Flask>=2.3.3           # lightweight web-framework
+numpy>=1.25.0          # numerical computing
+scikit-learn>=1.4.0    # machine-learning utilities
