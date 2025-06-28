@@ -1,0 +1,82 @@
+
+:root {
+  --bg-main: #0e0e1f;
+  --fg-main: #e0e0e0;
+  --border-base: #3b3b50;
+  --card-bg: rgba(255, 255, 255, 0.04);
+
+  /* risk colours */
+  --risk-low: #38c172;
+  --risk-medium: #f59e0b;
+  --risk-high: #ef4444;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-main);
+  color: var(--fg-main);
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.token-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.token-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-base);
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  backdrop-filter: blur(6px);
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.token-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--risk-medium);
+}
+
+.token-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.3px;
+}
+
+.token-risk {
+  font-size: 0.95rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* colour-code risk levels */
+.token-risk.low {
+  color: var(--risk-low);
+}
+.token-risk.medium {
+  color: var(--risk-medium);
+}
+.token-risk.high {
+  color: var(--risk-high);
+}
+
+/* small-screen tweaks */
+@media (max-width: 480px) {
+  .token-card {
+    padding: 1rem 1.25rem;
+  }
+
+  .token-name {
+    font-size: 1rem;
+  }
+}
