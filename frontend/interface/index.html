@@ -1,18 +1,104 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Alyssium Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>SelkaSense Dashboard</title>
+
+  <!-- fonts & basic palette -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --bg: #0e0e1f;
+      --fg: #e0e0e0;
+      --accent: #00ccff;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
+    #app {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .token-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid #3b3b50;
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin-block: 1.5rem;
+    }
+    .token-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0 0 0.35rem;
+    }
+    .token-risk {
+      font-size: 1rem;
+      margin: 0;
+    }
+    canvas {
+      width: 100%;
+      height: 180px;
+      margin-block: 1rem;
+    }
+    pre {
+      line-height: 1.4;
+      margin: 0.5rem 0;
+      white-space: pre-wrap;
+    }
+  </style>
 </head>
 <body>
   <div id="app">
-    <h1>Welcome to Alyssium</h1>
+    <h1>Stillbit Dashboard</h1>
+
     <div class="token-card">
-      <p class="token-name">Token: <span id="token-name">Loading...</span></p>
-      <p class="token-risk">Risk: <span id="token-risk">Unknown</span></p>
+      <p class="token-name">
+        Token: <span id="token-name">Loading…</span>
+      </p>
+      <p class="token-risk">
+        Risk: <span id="token-risk">Unknown</span>
+      </p>
+
+      <!-- spark-line -->
+      <canvas id="trend-canvas"></canvas>
+
+      <!-- risk heat-map -->
+      <pre id="risk-heatmap"></pre>
     </div>
   </div>
-  <script src="ely_script_dashboard.js"></script>
+
+  <!-- scripts -------------------------------------------------------- -->
+  <script type="module">
+    import { drawSparkline } from "./sparklineGraph.js";
+    import { drawRiskHeatmap } from "./riskHeatmap.js";
+
+    async function fetchTokenSample() {
+      // stubbed data – replace with real API later
+      return {
+        name: "",
+        risk: Math.random() > 0.6 ? "High" : "Low",
+        priceSeries: Array.from({ length: 40 }, () => 10 + Math.random() * 2),
+        riskSeries: Array.from({ length: 36 }, () => Math.random()),
+      };
+    }
+
+    (async () => {
+      const data = await fetchTokenSample();
+
+      document.getElementById("token-name").textContent = data.name;
+      document.getElementById("token-risk").textContent = data.risk;
+
+      drawSparkline(data.priceSeries);
+      document.getElementById("risk-heatmap").textContent =
+        drawRiskHeatmap(data.riskSeries);
+    })();
+  </script>
 </body>
 </html>
