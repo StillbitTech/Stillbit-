@@ -20,5 +20,5 @@ function dataPulse(priceDelta: number, walletInflow: number, timeframeMinutes: n
 }
 
 function auroraTagInsight(): void {
-  console.log("AuroraTrace activated at", new Date().toISOString());
+  console.log("activated at", new Date().toISOString());
 }
