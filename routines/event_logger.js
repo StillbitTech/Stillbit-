@@ -1,8 +1,16 @@
-function logEvent(category, details) {
-    const time = new Date().toISOString();
-    console.log(`[${category}] ${time}:`, details);
+/**
+ * Emit a single log line.
+ * @param {"info"|"warn"|"error"|"debug"|string} level
+ * @param {*} payload
+ */
+export function logEvent(level, payload) {
+  const ts = new Date().toISOString();
+  // eslint-disable-next-line no-console
+  console.log(`[${level.toUpperCase()}] ${ts}:`, payload);
 }
 
-function batchLog(events) {
-    events.forEach(event => logEvent(event.type, event.payload));
+
+export function batchLog(events = []) {
+  events.forEach((e) => logEvent(e.type, e.payload));
 }
+
