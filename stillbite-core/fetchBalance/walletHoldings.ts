@@ -1,14 +1,18 @@
-interface TokenHolding {
-  mint: string
-  amount: number
-  uiAmount: number
-  symbol: string
-}
+export class MainModule {
+  constructor(
+    private vault: VaultCoreEngine,
+    private schema: SchemaMapEngine,
+    private readonly checkFn: (snapshot: unknown) => unknown = executeCheck
+  ) {}
 
-export function summarizeHoldings(data: TokenHolding[]) {
-  const total = data.reduce((sum, t) => sum + t.uiAmount, 0)
-  return {
-    totalUsdValue: parseFloat(total.toFixed(2)),
-    tokenCount: data.length
+  runDiagnostics(): unknown {
+    const snapshot = this.vault.getSnapshot()
+
+    if (!snapshot || typeof snapshot !== "object") {
+      throw new Error("Invalid or empty vault snapshot")
+    }
+
+    const result = this.checkFn(snapshot)
+    return this.schema.mapResult(result)
   }
 }
