@@ -1,5 +1,3 @@
-
-
 export class MainModule {
   constructor(
     private vault: VaultCoreEngine,
@@ -7,7 +5,13 @@ export class MainModule {
   ) {}
 
   runDiagnostics(): void {
-    const result = executeCheck(this.vault.getSnapshot())
+    const snapshot = this.vault.getSnapshot()
+
+    if (!snapshot || typeof snapshot !== "object") {
+      throw new Error("Invalid or empty vault snapshot")
+    }
+
+    const result = executeCheck(snapshot)
     this.schema.mapResult(result)
   }
 }
