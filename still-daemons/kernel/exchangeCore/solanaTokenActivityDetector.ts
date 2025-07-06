@@ -11,25 +11,44 @@ export async function getTokenActivitySnapshot(
   connection: Connection,
   mintAddr: string
 ): Promise<TokenActivityLog> {
-  const mint = new PublicKey(mintAddr)
-  const accounts = await connection.getParsedTokenAccountsByMint(mint)
+  try {
+    const mint = new PublicKey(mintAddr)
+    const { value: tokenAccounts } = await connection.getParsedTokenAccountsByMint(mint)
 
-  let totalTransfers = 0
-  const activeAccounts = new Set<string>()
+    const activityMap = new Map<string, number>()
 
-  for (const { pubkey } of accounts.value) {
-    const txs = await connection.getConfirmedSignaturesForAddress2(pubkey, { limit: 10 })
-    if (txs.length > 0) activeAccounts.add(pubkey.toBase58())
-    totalTransfers += txs.length
-  }
+    const txResults = await Promise.allSettled(
+      tokenAccounts.map(({ pubkey }) =>
+        connection.getConfirmedSignaturesForAddress2(pubkey, { limit: 10 })
+      )
+    )
 
-  const uniqueCount = activeAccounts.size
-  const avg = uniqueCount ? totalTransfers / uniqueCount : 0
+    let totalTransfers = 0
 
-  return {
-    mint: mint.toBase58(),
-    txCountLastHour: totalTransfers,
-    uniqueAccounts: uniqueCount,
-    avgTransfersPerAccount: parseFloat(avg.toFixed(2))
+    txResults.forEach((res, i) => {
+      if (res.status === "fulfilled" && res.value.length > 0) {
+        const account = tokenAccounts[i].pubkey.toBase58()
+        activityMap.set(account, res.value.length)
+        totalTransfers += res.value.length
+      }
+    })
+
+    const uniqueAccounts = activityMap.size
+    const avgTransfers = uniqueAccounts ? totalTransfers / uniqueAccounts : 0
+
+    return {
+      mint: mint.toBase58(),
+      txCountLastHour: totalTransfers,
+      uniqueAccounts,
+      avgTransfersPerAccount: parseFloat(avgTransfers.toFixed(2)),
+    }
+  } catch (err) {
+    console.error("Failed to fetch token activity snapshot:", err)
+    return {
+      mint: mintAddr,
+      txCountLastHour: 0,
+      uniqueAccounts: 0,
+      avgTransfersPerAccount: 0,
+    }
   }
 }
