@@ -1,11 +1,4 @@
-"""
-Market Metrics — enhanced volatility, momentum, and trend utilities.
-Adds:
-• Type hints + dataclass for snapshot
-• Exponential moving volatility option
-• Flexible momentum window
-• Composite health score with clamp(0-1)
-"""
+
 
 from __future__ import annotations
 
