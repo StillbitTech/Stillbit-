@@ -1,21 +1,25 @@
 import { scanRecentTraceSignatures } from "../core/traceScanner"
 
 export async function runTraceAnalysisJob(): Promise<void> {
-  const jobStart = new Date().toISOString()
-  console.log(`[Stillbit] Trace analysis started at ${jobStart}`)
+  const timestamp = () => new Date().toISOString()
+  console.log(`[Stillbit] 🔍 Trace analysis started at ${timestamp()}`)
 
   try {
-    const scanResult = await scanRecentTraceSignatures()
+    const result = await scanRecentTraceSignatures()
 
-    if (!scanResult || scanResult.totalTraces === 0) {
-      console.log("[Stillbit] No significant trace signatures detected")
-    } else {
-      console.log(`[Stillbit] Trace scan complete:\n${JSON.stringify(scanResult, null, 2)}`)
+    if (!result || typeof result.totalTraces !== "number") {
+      console.warn("[Stillbit] ⚠️ Invalid trace data received")
+      return
     }
-  } catch (err) {
-    console.error("[Stillbit] Trace job execution failed:", err)
+
+    if (result.totalTraces === 0) {
+      console.log("[Stillbit] ✅ No significant trace signatures found")
+    } else {
+      console.log(`[Stillbit] 📊 Trace scan completed with results:\n${JSON.stringify(result, null, 2)}`)
+    }
+  } catch (error) {
+    console.error("[Stillbit] ❌ Trace analysis job failed:", error)
   } finally {
-    const jobEnd = new Date().toISOString()
-    console.log(`[Stillbit] Trace analysis finished at ${jobEnd}`)
+    console.log(`[Stillbit] 🛠️ Trace analysis finished at ${timestamp()}`)
   }
 }
